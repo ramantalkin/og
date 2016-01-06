@@ -6,13 +6,11 @@ RUN apt-get update \
 # Get source
 WORKDIR /srv
 RUN git clone --depth 1 https://github.com/OpenGamma/OG-Platform.git
-
 # Build
 WORKDIR OG-Platform
 RUN mvn install
-
 # Set up for simulated server
-#WORKDIR examples/examples-simulated
-#RUN mvn opengamma:server-init -Dconfig=fullstack
-#EXPOSE 8080
-#CMD [ "mvn", "opengamma:server-run", "-Dconfig=fullstack" ]
+WORKDIR examples/examples-simulated
+RUN mvn opengamma:server-init -Dconfig=fullstack
+EXPOSE 8080
+CMD [ "mvn", "opengamma:server-run", "-Dconfig=fullstack" ]
