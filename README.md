@@ -1,4 +1,3 @@
-# ramantalkin/og
 ## Quickstart
 docker run -d -ti -p 8080:8080 --name og1 raman/og
 
