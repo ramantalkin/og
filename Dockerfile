@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:trusty
 RUN apt-get update \
  && apt-get install -y git maven openjdk-7-jdk \
  && apt-get autoremove -y \
